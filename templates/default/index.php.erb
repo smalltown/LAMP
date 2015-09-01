@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hello!</title>
+<link rel="stylesheet" href="https://stackedit.io/res-min/themes/base.css" />
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
+</head>
+<body><div class="container"><h1 id="lamp-cookbook">LAMP-cookbook</h1>
+
+<p>This cookbook is for provision LAMP server</p>
+
+<h2 id="version">Current Version: <b><%= @version %> </b></h2>
+
+
+<?php date_default_timezone_set('Asia/Taipei');?>
+<h2 id="time">Modify Time: <b><?php echo date('Y/m/d H:i:s', <%= @timestamp %>);?></b></h2>
+
+<h2 id="supported-platforms">Supported Platforms</h2>
+
+
+<h3 id="centos-ubuntu">CentOS, Ubuntu</h3>
+
+<h2 id="attributes">Attributes</h2>
+
+<table>
+  <tbody><tr>
+    <th>Key</th>
+    <th>Type</th>
+    <th>Description</th>
+    <th>Default</th>
+  </tr>
+  <tr>
+    <td><tt>[‘LAMP’][‘bacon’]</tt></td>
+    <td>Boolean</td>
+    <td>whether to include bacon</td>
+    <td><tt>true</tt></td>
+  </tr>
+</tbody></table>
+
+
+
+<h2 id="usage">Usage</h2>
+
+<h3 id="lampdefault">LAMP::default</h3>
+
+<p>Include <code>LAMP</code> in your node’s <code>run_list</code>:</p>
+
+
+
+<pre class="prettyprint"><code class="language-json hljs ">{
+  "<span class="hljs-attribute">run_list</span>": <span class="hljs-value">[
+    <span class="hljs-string">"recipe[LAMP::default]"</span>
+  ]
+</span>}</code></pre>
+
+
+
+<h2 id="license-and-authors">License and Authors</h2>
+
+<p>Author:: YOUR_NAME ()</p></div></body>
+</html>

@@ -8,3 +8,7 @@
 #
 
 include_recipe "yum-epel"
+
+service 'pushy-client' do
+  action [:enable, :start]
+end
