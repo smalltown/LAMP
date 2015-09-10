@@ -90,6 +90,7 @@ This repository will help you to setup a Chef development environment in your lo
 		```
 		Add  "C:\opscode\chefdk\embedded\bin"  into Path variable in environment variable
 		```
+
 ### Git
 - Linux
 	```
