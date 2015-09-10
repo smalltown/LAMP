@@ -1,42 +1,105 @@
-# LAMP-cookbook
+# LAMP Cookbook for Try Chef
 
-TODO: Enter the cookbook description here.
+This repository will help you to setup a Chef development environment in your local machine, and try to use the provided cookbook to provision a LAMP server
 
-## Supported Platforms
+## Installation
+### VirtualBox
+- Download the VirtualBox installation package depends on your platform from [official website](https://www.virtualbox.org/wiki/Downloads) 
 
-TODO: List your supported platforms.
+- Install package by below command
+	```
+	# Red Hat Enterprise Linux
+	~$ sudo rpm -ivh /Path to the rpm package/#{Package Name}.rpm
 
-## Attributes
+	# Ubuntu
+	~$ sudo dpkg -i /Path to the rpm package/#{Package Name}.deb
 
-<table>
-  <tr>
-    <th>Key</th>
-    <th>Type</th>
-    <th>Description</th>
-    <th>Default</th>
-  </tr>
-  <tr>
-    <td><tt>['LAMP']['bacon']</tt></td>
-    <td>Boolean</td>
-    <td>whether to include bacon</td>
-    <td><tt>true</tt></td>
-  </tr>
-</table>
+	# OS X or Windows
+	Just double click the download package
+	```
+### Vagrant
+- Download the Vagrant installation package depends on your platform from [official website](https://www.vagrantup.com/downloads.html)
+- Install package by below command
+	```# Red Hat Enterprise Linux
+	~$ sudo rpm -ivh /Path to the rpm package/#{Package Name}.rpm
 
-## Usage
+	# Ubuntu
+	~$ sudo dpkg -i /Path to the rpm package/#{Package Name}.deb
 
-### LAMP::default
+	# OS X or Windows
+	Just double click the download package
+	```
+- Install some necessary Vagrant plugins from command line mode
+	```~$ vagrant plugin install vagrant-omnibus
+	~$ vagrant plugin install vagrant-berkshelf
+	~$ vagrant plugin install vagrant-cachier
+	~$ vagrant plugin install vagrant-vbguest
 
-Include `LAMP` in your node's `run_list`:
+	# if you install one plugin successfully, then you could see wording like below
+	Installing the '#{Package Name}' plugin. This can take a few minutes...
+	Installed the plugin '#{Package Name} (#{Version})'!
+	```
+- Prepare the Vagrant box
+	```
+	~$ vagrant box add bento/ubuntu-14.04 https://atlas.hashicorp.com/bento/ubuntu-14.04
+	# choose virtualbox as the provider
+	```
+### ChefDK
+- Download ChefDK installation package from [official site](https://downloads.chef.io/chef-dk/)
 
-```json
-{
-  "run_list": [
-    "recipe[LAMP::default]"
-  ]
-}
+- Install package by below command
+	```# Red Hat Enterprise Linux
+	~$ sudo rpm -ivh /Path to the rpm package/#{Package Name}.rpm
+
+	# Ubuntu
+	~$ sudo dpkg -i /Path to the rpm package/#{Package Name}.deb
+
+	# OS X or Windows
+	Just double click the download package
+	```
+	
+- Verify the ChefDK by below command
+	```~$ chef verify
+	Running verification for component '...'
+	..........
+	---------------------------------------------
+	Verification of component '...' succeeded.
+	```
+	
+- Set System Ruby
+	- Linux Based OS
+	```
+	~$　echo 'eval "$(chef shell-init bash)"' >> ~/.bash_profile
+	~$ . ~/.bash_profile
+	~$ which ruby
+	# that will return
+	/opt/chefdk/embedded/bin/ruby
+	```
+	- Windows
+	```
+	Add  "C:\opscode\chefdk\embedded\bin"  into Path variable in environment variable
+	```
+### Git
+- Linux
+
+	```
+	# Red Hat Enterprise Linux
+	~$ sudo yum install git
+	# Ubuntu
+	~$ sudo apt-get install git
+	```
+- Mac
+
+	```~$ brew install git
+	```
+- Windows
+	- Download Git installation package from [official site](https://git-scm.com/downloads)
+	- During the installation process, please chooes **"Use Git from the Windows Comand Prompt"**, when Adjusing your PATH environment
+
+## Download Dependency Cookbook
+Get the dependency cookbook from chef supermarket
 ```
-
-## License and Authors
-
-Author:: YOUR_NAME (<YOUR_EMAIL>)
+~$ git clone https://github.com/smalltown/LAMP.git
+~$ cd LAMP
+~$ berks install
+```

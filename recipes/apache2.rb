@@ -7,12 +7,13 @@
 # All rights reserved - Do Not Redistribute
 #
 
+=begin
 temp = node.chef_environment.match('_(.*)')
 simple_phase = temp[1].to_s
 
 # prepare deployment information from data bag
 deployInfo = data_bag_item('deployment', "#{node.chef_environment}_DevOps_site80")
-
+=end
 include_recipe 'apache2'
 include_recipe 'apache2::mod_ssl'
 include_recipe 'apache2::mod_php5'
@@ -37,8 +38,8 @@ template "#{node['LAMP']['Apache2']['document_root']}/index.php" do
   mode '0644'
 
   variables({
-   :version => deployInfo['version']['deploy'],
-   :timestamp => deployInfo['timestamp']['deploy']
+   :version => "123",
+   :timestamp => "456"
   })
 end
 
