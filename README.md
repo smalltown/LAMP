@@ -4,7 +4,23 @@ This repository will help you to setup a Chef development environment in your lo
 
 ## Installation
 ### VirtualBox
+
 - Download the VirtualBox installation package depends on your platform from [official website](https://www.virtualbox.org/wiki/Downloads) 
+
+- Install package by below command
+
+	```
+	# Red Hat Enterprise Linux
+	~$ sudo rpm -ivh /Path to the rpm package/#{Package Name}.rpm
+	# Ubuntu
+	~$ sudo dpkg -i /Path to the rpm package/#{Package Name}.deb
+
+	# OS X or Windows
+	Just double click the download package
+	```
+  
+### Vagrant
+- Download the Vagrant installation package depends on your platform from [official website](https://www.vagrantup.com/downloads.html)
 
 - Install package by below command
 	```
@@ -17,20 +33,10 @@ This repository will help you to setup a Chef development environment in your lo
 	# OS X or Windows
 	Just double click the download package
 	```
-### Vagrant
-- Download the Vagrant installation package depends on your platform from [official website](https://www.vagrantup.com/downloads.html)
-- Install package by below command
-	```# Red Hat Enterprise Linux
-	~$ sudo rpm -ivh /Path to the rpm package/#{Package Name}.rpm
-
-	# Ubuntu
-	~$ sudo dpkg -i /Path to the rpm package/#{Package Name}.deb
-
-	# OS X or Windows
-	Just double click the download package
-	```
+	
 - Install some necessary Vagrant plugins from command line mode
-	```~$ vagrant plugin install vagrant-omnibus
+	```
+	~$ vagrant plugin install vagrant-omnibus
 	~$ vagrant plugin install vagrant-berkshelf
 	~$ vagrant plugin install vagrant-cachier
 	~$ vagrant plugin install vagrant-vbguest
@@ -39,16 +45,19 @@ This repository will help you to setup a Chef development environment in your lo
 	Installing the '#{Package Name}' plugin. This can take a few minutes...
 	Installed the plugin '#{Package Name} (#{Version})'!
 	```
+	
 - Prepare the Vagrant box
 	```
 	~$ vagrant box add bento/ubuntu-14.04 https://atlas.hashicorp.com/bento/ubuntu-14.04
 	# choose virtualbox as the provider
 	```
+	
 ### ChefDK
 - Download ChefDK installation package from [official site](https://downloads.chef.io/chef-dk/)
 
 - Install package by below command
-	```# Red Hat Enterprise Linux
+	```
+	# Red Hat Enterprise Linux
 	~$ sudo rpm -ivh /Path to the rpm package/#{Package Name}.rpm
 
 	# Ubuntu
@@ -59,7 +68,8 @@ This repository will help you to setup a Chef development environment in your lo
 	```
 	
 - Verify the ChefDK by below command
-	```~$ chef verify
+	```
+	~$ chef verify
 	Running verification for component '...'
 	..........
 	---------------------------------------------
@@ -68,38 +78,43 @@ This repository will help you to setup a Chef development environment in your lo
 	
 - Set System Ruby
 	- Linux Based OS
-	```
-	~$　echo 'eval "$(chef shell-init bash)"' >> ~/.bash_profile
-	~$ . ~/.bash_profile
-	~$ which ruby
-	# that will return
-	/opt/chefdk/embedded/bin/ruby
-	```
+		```
+		~$　echo 'eval "$(chef shell-init bash)"' >> ~/.bash_profile
+		~$ . ~/.bash_profile
+		~$ which ruby
+		# that will return
+		/opt/chefdk/embedded/bin/ruby
+		```
+	
 	- Windows
-	```
-	Add  "C:\opscode\chefdk\embedded\bin"  into Path variable in environment variable
-	```
+		```
+		Add  "C:\opscode\chefdk\embedded\bin"  into Path variable in environment variable
+		```
 ### Git
 - Linux
-
 	```
 	# Red Hat Enterprise Linux
 	~$ sudo yum install git
 	# Ubuntu
 	~$ sudo apt-get install git
 	```
+	
 - Mac
-
-	```~$ brew install git
 	```
+	~$ brew install git
+	```
+	
 - Windows
 	- Download Git installation package from [official site](https://git-scm.com/downloads)
 	- During the installation process, please chooes **"Use Git from the Windows Comand Prompt"**, when Adjusing your PATH environment
 
 ## Download Dependency Cookbook
-Get the dependency cookbook from chef supermarket
-```
-~$ git clone https://github.com/smalltown/LAMP.git
-~$ cd LAMP
-~$ berks install
-```
+
+- Get the dependency cookbook from chef supermarket
+
+	```
+	~$ git clone https://github.com/smalltown/LAMP.git
+	~$ cd LAMP
+	~$ berks install
+	```
+
