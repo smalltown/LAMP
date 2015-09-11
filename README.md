@@ -118,4 +118,19 @@ This repository will help you to setup a Chef development environment in your lo
 	~$ cd LAMP
 	~$ berks install
 	```
+- If you encounter the SSL issue during using berks, you could disable it by adding a config
+	- Linux based OS
+	
+		```
+		~$ vim ~/.berkshelf/config.json
+		# add below content
+		{"ssl":{"verify": false }}
+		```
+	- Windows
+	
+		```
+		Add the config.json in anywhere you like, and the content is {"ssl":{"verify": false }}
+		Then specific the config file during execute berks install
+		~$ berks install -c /Path to config file/config.json
+		```
 
