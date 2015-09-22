@@ -88,7 +88,7 @@ This repository will help you to setup a Chef development environment in your lo
 	
 	- Windows
 		```
-		Add  "C:\opscode\chefdk\embedded\bin"  into Path variable in environment variable
+		Add  "C:\opscode\chefdk\bin"  into Path variable in environment variable
 		```
 
 ### Git
@@ -134,3 +134,4 @@ This repository will help you to setup a Chef development environment in your lo
 		~$ berks install -c /Path to config file/config.json
 		```
 
+                            
