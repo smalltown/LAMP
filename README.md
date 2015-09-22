@@ -48,7 +48,7 @@ This repository will help you to setup a Chef development environment in your lo
 	
 - Prepare the Vagrant box
 	```
-	~$ vagrant box add bento/ubuntu-14.04 https://atlas.hashicorp.com/bento/ubuntu-14.04
+	~$ vagrant box add --insecure bento/ubuntu-14.04 https://atlas.hashicorp.com/bento/ubuntu-14.04
 	# choose virtualbox as the provider
 	```
 	
